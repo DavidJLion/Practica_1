@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>    
+
+let alumno1 = {
+    nombre : "Ana",
+    edad : 20,
+    calificaciones : [8, 9, 7]
+
+};
+
+let alumno2 = {
+    nombre : "Luis",
+    edad : 24,
+    calificaciones : [5, 6, 4]
+
+};
+
+let alumno3 = {
+    nombre : "Maria",
+    edad : 22,
+    calificaciones : [9, 9, 10]
+
+};
+
+let alumno4 = {
+    nombre : "Carlos",
+    edad : 22,
+    calificaciones : [6, 7, 5] 
+
+};
+
+let alumno5 = {
+    nombre : "Sofia",
+    edad : 21,
+    calificaciones : [10, 10, 9]
+};
+
+
+
+
+function prom_alumno(calificaciones){
+    let suma=0;
+
+    for(let i = 0; i < calificaciones.length; i++){ 
+        suma += calificaciones[i];
+    }
+    return (suma/3)
+}
+
+
+
+function mostrar_promedio(alumnos){
+    
+
+    for(let i=0;i<alumnos.length;i++){
+
+        console.log("El promedio de ",alumnos[i].nombre,"es ", prom_alumno(alumnos[i].calificaciones));
+
+    }    
+    
+}
+
+
+function mayor_igual_7_promedio(alumnos){
+
+    let nombres = "";
+    for(let i=0;i<alumnos.length;i++){
+
+        if(prom_alumno(alumnos[i].calificaciones) >= 7){
+            nombres = nombres + alumnos[i].nombre;
+            nombres = nombres + ",";
+        }
+    }
+
+    
+    nombres =  nombres.substring(0, nombres.length - 1) + "."
+    console.log(nombres);
+}
+
+function buscar(alumnos,nombre){
+
+    if(nombre == "Ana" || nombre == "Luis" || nombre == "Maria" || nombre == "Carlos" || nombre == "Sofia"){
+    
+        for(let i=0;i<alumnos.length;i++){
+
+            if(alumnos[i].nombre==nombre){
+                console.log(alumnos[i]);
+            }
+        }
+    }else{
+        console.log("El nombre ",nombre," no esta registrado")
+    }
+}
+
+
+
+
+const alumnos = [alumno1,alumno2,alumno3,alumno4,alumno5];
+mostrar_promedio(alumnos);
+
+mayor_igual_7_promedio(alumnos);
+
+buscar(alumnos,"Luis");
+buscar(alumnos,"Carlos");
+buscar(alumnos,"Ana");
+buscar(alumnos,"Maria");
+buscar(alumnos,"Sofia");
+buscar(alumnos,"Dave");
+
+
+
+
+
+</script>
